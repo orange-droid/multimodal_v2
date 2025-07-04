@@ -43,36 +43,24 @@ ProtoBully/
 ## 运行说明
 
 1. 数据预处理：
-\\\ash
 python src/data_processing/main.py
-\\\
 
 2. 特征提取：
-\\\ash
 python src/feature_extraction/text_feature_extractor.py
-\\\
 
 3. 图构建：
-\\\ash
 python src/graph_construction/graph_construction_runner.py
-\\\
 
 4. 子图提取：
-\\\ash
 python run_fixed_subgraph_extraction.py
-\\\
 输出目录：data/subgraphs/universal_optimized_fixed/
 
 5. 原型提取（使用最新重构版本）：
-\\\ash
 python run_prototype_extraction_v6_refactored.py
-\\\
 输出文件：data/prototypes/extracted_prototypes_v6_refactored_20250703_092014.pkl
 
 6. 霸凌检测：
-\\\ash
 python run_cyberbullying_detection_v6_adapted.py
-\\\
 
 ## 数据目录说明
 
