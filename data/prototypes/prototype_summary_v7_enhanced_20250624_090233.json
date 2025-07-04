@@ -1,0 +1,9 @@
+{
+  "total_prototypes": 15,
+  "avg_quality": 0.975066344877194,
+  "avg_weighted_score": 1.4625995173157909,
+  "avg_cluster_size": 80.46666666666667,
+  "total_coverage": 1207,
+  "avg_bullying_ratio": 1.0,
+  "extraction_timestamp": "2025-06-24T09:02:33.471576"
+}

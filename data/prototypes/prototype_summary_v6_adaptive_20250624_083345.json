@@ -1,0 +1,172 @@
+{
+  "extraction_method": "V6_adaptive_weights",
+  "total_subgraphs": 10382,
+  "extracted_prototypes": 13,
+  "optimized_weights": {
+    "structure_weight": 0.255911801362078,
+    "emotion_weight": 0.24045547293350272,
+    "semantic_weight": 0.25433206116093743,
+    "temporal_weight": 0.24930066454348188
+  },
+  "config": {
+    "min_prototype_size": 25,
+    "max_prototypes": 15,
+    "similarity_threshold": 0.7,
+    "dbscan_eps": 0.5,
+    "dbscan_min_samples": 6,
+    "enable_adaptive_weights": true,
+    "weight_optimization_strategy": "differential_evolution",
+    "feature_weights": {
+      "size": 0.15,
+      "emotion": 0.4,
+      "node_composition": 0.25,
+      "structure": 0.2
+    }
+  },
+  "timestamp": "20250624_083345",
+  "prototype_details": [
+    {
+      "id": "adaptive_prototype_11",
+      "size": 162,
+      "quality_score": 0.8775667532704903,
+      "statistics": {
+        "avg_size": 5.0,
+        "avg_emotion_score": -0.5358211525499861,
+        "avg_comment_nodes": 3.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_0",
+      "size": 2110,
+      "quality_score": 0.8635248041979643,
+      "statistics": {
+        "avg_size": 5.0,
+        "avg_emotion_score": -0.5288587968097211,
+        "avg_comment_nodes": 3.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_12",
+      "size": 87,
+      "quality_score": 0.8480451273477563,
+      "statistics": {
+        "avg_size": 6.0,
+        "avg_emotion_score": -0.5614865558550655,
+        "avg_comment_nodes": 3.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_6",
+      "size": 492,
+      "quality_score": 0.8137361528517678,
+      "statistics": {
+        "avg_size": 10.225609756097562,
+        "avg_emotion_score": -0.4848260242031929,
+        "avg_comment_nodes": 7.225609756097561,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_4",
+      "size": 2021,
+      "quality_score": 0.812610872621985,
+      "statistics": {
+        "avg_size": 10.258287976249381,
+        "avg_emotion_score": -0.47657700485426585,
+        "avg_comment_nodes": 7.258287976249382,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_8",
+      "size": 305,
+      "quality_score": 0.8124571006901158,
+      "statistics": {
+        "avg_size": 6.0,
+        "avg_emotion_score": -0.5194611354221493,
+        "avg_comment_nodes": 3.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_10",
+      "size": 118,
+      "quality_score": 0.800104172305945,
+      "statistics": {
+        "avg_size": 7.0,
+        "avg_emotion_score": -0.5184858068867294,
+        "avg_comment_nodes": 4.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_9",
+      "size": 633,
+      "quality_score": 0.7906176246512922,
+      "statistics": {
+        "avg_size": 10.044233807266982,
+        "avg_emotion_score": -0.48746633127637734,
+        "avg_comment_nodes": 7.044233807266982,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_1",
+      "size": 1838,
+      "quality_score": 0.7733190610053928,
+      "statistics": {
+        "avg_size": 6.0,
+        "avg_emotion_score": -0.5136595449030374,
+        "avg_comment_nodes": 3.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_5",
+      "size": 236,
+      "quality_score": 0.5955573071823873,
+      "statistics": {
+        "avg_size": 7.0,
+        "avg_emotion_score": -0.5022093314885911,
+        "avg_comment_nodes": 4.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_7",
+      "size": 228,
+      "quality_score": 0.5804987554591458,
+      "statistics": {
+        "avg_size": 8.0,
+        "avg_emotion_score": -0.4940535951287218,
+        "avg_comment_nodes": 5.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_2",
+      "size": 1192,
+      "quality_score": 0.5250062185530827,
+      "statistics": {
+        "avg_size": 7.0,
+        "avg_emotion_score": -0.4942710783743244,
+        "avg_comment_nodes": 4.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_3",
+      "size": 841,
+      "quality_score": 0.5046108007376765,
+      "statistics": {
+        "avg_size": 8.0,
+        "avg_emotion_score": -0.48808478474397987,
+        "avg_comment_nodes": 5.0,
+        "avg_user_nodes": 1.0
+      }
+    }
+  ]
+}

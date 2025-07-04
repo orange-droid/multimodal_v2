@@ -1,0 +1,20 @@
+{
+  "total_subgraphs": 10382,
+  "clustered_subgraphs": 11389,
+  "prototypes_count": 12,
+  "cluster_distribution": {
+    "cluster_7_dbscan_7": 486,
+    "cluster_12_dbscan_12": 118,
+    "cluster_19_size_12_13": 577,
+    "cluster_6_dbscan_6": 629,
+    "cluster_5_dbscan_5": 716,
+    "cluster_18_size_10_11": 1511,
+    "cluster_0_dbscan_0": 2110,
+    "cluster_15_size_4_5": 2312,
+    "cluster_11_dbscan_11": 286,
+    "cluster_9_dbscan_9": 161,
+    "cluster_4_dbscan_4": 645,
+    "cluster_1_dbscan_1": 1838
+  },
+  "processing_time": 0.705046
+}

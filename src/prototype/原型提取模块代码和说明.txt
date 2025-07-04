@@ -1,0 +1,10 @@
+原型提取模块最新主要代码
+prototype_extractor_v4_fixed.py (67KB, 1518行) - 最新主版本
+作用：ProtoBully的核心原型提取器
+功能：基于原型匹配的霸凌检测算法实现
+src/prototype/subgraph_extractor.py (38KB, 908行) - 最新子模块
+作用：子图提取器
+功能：从异构图中提取结构化子图
+multimodal_structure_aligner_v4.py (34KB, 821行) - 最新对齐器
+作用：多模态结构对齐器
+功能：跨模态图结构对齐和相似度计算

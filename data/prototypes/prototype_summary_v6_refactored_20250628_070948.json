@@ -1,0 +1,35 @@
+{
+  "extraction_method": "weak_supervised_v6_refactored",
+  "timestamp": "2025-06-28T07:09:48.479827",
+  "configuration": {
+    "purity_threshold": 0.7,
+    "min_cluster_size": 15,
+    "eps": 0.3,
+    "min_samples": 8,
+    "max_prototypes": 15,
+    "feature_dim": 10,
+    "random_state": 42
+  },
+  "statistics": {
+    "total_sessions": 959,
+    "bullying_sessions": 299,
+    "normal_sessions": 660,
+    "total_subgraphs": 1757161,
+    "bullying_subgraphs": 557709,
+    "normal_subgraphs": 1199452,
+    "extracted_prototypes": 15
+  },
+  "quality_evaluation_method": {
+    "purity": "原型中霸凌子图的比例",
+    "discrimination": "与正常子图的特征差异",
+    "coverage": "覆盖的霸凌会话比例",
+    "stability": "原型内部特征的一致性"
+  },
+  "prototypes": [
+    {
+      "id": 1,
+      "name": "Bullying_Prototype_1",
+      "subgraph_count": 111,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 

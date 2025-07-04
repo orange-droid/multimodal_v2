@@ -1,0 +1,292 @@
+{
+  "extraction_method": "session_enhanced_v6",
+  "timestamp": "2025-06-28T06:08:48.314406",
+  "statistics": {
+    "total_sessions": 959,
+    "bullying_sessions": 299,
+    "normal_sessions": 660,
+    "total_subgraphs": 917250,
+    "bullying_candidate_subgraphs": 557709,
+    "normal_reference_subgraphs": 359541,
+    "high_quality_bullying_subgraphs": 61833,
+    "prototypes_count": 15,
+    "processing_time": 0
+  },
+  "configuration": {
+    "min_prototype_size": 50,
+    "max_prototypes": 15,
+    "session_label_weight": 0.3,
+    "bullying_session_priority": 2.0,
+    "normal_sample_ratio": 0.3,
+    "dbscan_eps": 0.4,
+    "dbscan_min_samples": 10,
+    "similarity_threshold": 0.75,
+    "feature_weights": {
+      "session_signal": 0.25,
+      "attack_features": 0.3,
+      "user_behavior": 0.2,
+      "structure": 0.25
+    }
+  },
+  "prototypes": [
+    {
+      "id": 1,
+      "name": "bullying_prototype_v6_220",
+      "subgraph_count": 50,
+      "quality_score": 0.8325843367615572,
+      "representative_features": {
+        "avg_bullying_score": 4.422350883483887,
+        "avg_comment_count": 1.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 12.0,
+        "avg_total_nodes": 13.0,
+        "avg_edge_count": 0.0,
+        "avg_density": 0.0
+      }
+    },
+    {
+      "id": 2,
+      "name": "bullying_prototype_v6_213",
+      "subgraph_count": 65,
+      "quality_score": 0.8325073630014709,
+      "representative_features": {
+        "avg_bullying_score": 4.5358781814575195,
+        "avg_comment_count": 1.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 7.0,
+        "avg_total_nodes": 8.0,
+        "avg_edge_count": 0.0,
+        "avg_density": 0.0
+      }
+    },
+    {
+      "id": 3,
+      "name": "bullying_prototype_v6_211",
+      "subgraph_count": 70,
+      "quality_score": 0.8278160986202875,
+      "representative_features": {
+        "avg_bullying_score": 4.588028430938721,
+        "avg_comment_count": 1.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 5.0,
+        "avg_total_nodes": 6.0,
+        "avg_edge_count": 0.0,
+        "avg_density": 0.0
+      }
+    },
+    {
+      "id": 4,
+      "name": "bullying_prototype_v6_215",
+      "subgraph_count": 67,
+      "quality_score": 0.8277911124788714,
+      "representative_features": {
+        "avg_bullying_score": 4.5697174072265625,
+        "avg_comment_count": 1.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 9.0,
+        "avg_total_nodes": 10.0,
+        "avg_edge_count": 0.0,
+        "avg_density": 0.0
+      }
+    },
+    {
+      "id": 5,
+      "name": "bullying_prototype_v6_212",
+      "subgraph_count": 69,
+      "quality_score": 0.8276211531142926,
+      "representative_features": {
+        "avg_bullying_score": 4.585561752319336,
+        "avg_comment_count": 1.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 6.0,
+        "avg_total_nodes": 7.0,
+        "avg_edge_count": 0.0,
+        "avg_density": 0.0
+      }
+    },
+    {
+      "id": 6,
+      "name": "bullying_prototype_v6_214",
+      "subgraph_count": 67,
+      "quality_score": 0.8245262879997654,
+      "representative_features": {
+        "avg_bullying_score": 4.581332683563232,
+        "avg_comment_count": 1.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 8.0,
+        "avg_total_nodes": 9.0,
+        "avg_edge_count": 0.0,
+        "avg_density": 0.0
+      }
+    },
+    {
+      "id": 7,
+      "name": "bullying_prototype_v6_216",
+      "subgraph_count": 61,
+      "quality_score": 0.8176274356588357,
+      "representative_features": {
+        "avg_bullying_score": 4.5588698387146,
+        "avg_comment_count": 1.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 10.0,
+        "avg_total_nodes": 11.0,
+        "avg_edge_count": 0.0,
+        "avg_density": 0.0
+      }
+    },
+    {
+      "id": 8,
+      "name": "bullying_prototype_v6_167",
+      "subgraph_count": 130,
+      "quality_score": 0.653210274195569,
+      "representative_features": {
+        "avg_bullying_score": 1.1866753101348877,
+        "avg_comment_count": 14.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 1.0,
+        "avg_total_nodes": 15.0,
+        "avg_edge_count": 0.0,
+        "avg_density": 0.0
+      }
+    },
+    {
+      "id": 9,
+      "name": "bullying_prototype_v6_219",
+      "subgraph_count": 189,
+      "quality_score": 0.6515452771974283,
+      "representative_features": {
+        "avg_bullying_score": 1.2461702823638916,
+        "avg_comment_count": 10.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 2.0,
+        "avg_total_nodes": 12.0,
+        "avg_edge_count": 2.0,
+        "avg_density": 0.03030303120613098
+      }
+    },
+    {
+      "id": 10,
+      "name": "bullying_prototype_v6_153",
+      "subgraph_count": 162,
+      "quality_score": 0.6498546776490097,
+      "representative_features": {
+        "avg_bullying_score": 1.2401925325393677,
+        "avg_comment_count": 8.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 4.0,
+        "avg_total_nodes": 12.0,
+        "avg_edge_count": 2.0,
+        "avg_density": 0.03030303120613098
+      }
+    },
+    {
+      "id": 11,
+      "name": "bullying_prototype_v6_182",
+      "subgraph_count": 141,
+      "quality_score": 0.6493243591806774,
+      "representative_features": {
+        "avg_bullying_score": 1.2727901935577393,
+        "avg_comment_count": 10.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 1.0,
+        "avg_total_nodes": 11.0,
+        "avg_edge_count": 2.0,
+        "avg_density": 0.036363635212183
+      }
+    },
+    {
+      "id": 12,
+      "name": "bullying_prototype_v6_162",
+      "subgraph_count": 129,
+      "quality_score": 0.6480223714701328,
+      "representative_features": {
+        "avg_bullying_score": 1.2204616069793701,
+        "avg_comment_count": 13.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 1.0,
+        "avg_total_nodes": 14.0,
+        "avg_edge_count": 0.0,
+        "avg_density": 0.0
+      }
+    },
+    {
+      "id": 13,
+      "name": "bullying_prototype_v6_202",
+      "subgraph_count": 140,
+      "quality_score": 0.6474926434510746,
+      "representative_features": {
+        "avg_bullying_score": 1.2170885801315308,
+        "avg_comment_count": 12.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 2.0,
+        "avg_total_nodes": 14.0,
+        "avg_edge_count": 0.0,
+        "avg_density": 0.0
+      }
+    },
+    {
+      "id": 14,
+      "name": "bullying_prototype_v6_158",
+      "subgraph_count": 152,
+      "quality_score": 0.6473848276837076,
+      "representative_features": {
+        "avg_bullying_score": 1.294710636138916,
+        "avg_comment_count": 12.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 1.0,
+        "avg_total_nodes": 13.0,
+        "avg_edge_count": 0.0,
+        "avg_density": 0.0
+      }
+    },
+    {
+      "id": 15,
+      "name": "bullying_prototype_v6_181",
+      "subgraph_count": 216,
+      "quality_score": 0.6473413068517921,
+      "representative_features": {
+        "avg_bullying_score": 1.2656365633010864,
+        "avg_comment_count": 10.0,
+        "avg_user_count": 0.0,
+        "avg_word_count": 1.0,
+        "avg_total_nodes": 11.0,
+        "avg_edge_count": 0.0,
+        "avg_density": 0.0
+      }
+    }
+  ],
+  "discriminative_analysis": {
+    "top_features": [
+      {
+        "feature": "session_label",
+        "effect_size": 100000000.0,
+        "bullying_mean": 1.0,
+        "normal_mean": 0.0
+      },
+      {
+        "feature": "bullying_score",
+        "effect_size": 3.1802971363067627,
+        "bullying_mean": 1.5619847774505615,
+        "normal_mean": 0.0
+      },
+      {
+        "feature": "comment_count",
+        "effect_size": 0.2635136842727661,
+        "bullying_mean": 4.618650436401367,
+        "normal_mean": 5.387037754058838
+      },
+      {
+        "feature": "word_count",
+        "effect_size": 0.1827283501625061,
+        "bullying_mean": 5.579318523406982,
+        "normal_mean": 4.968434810638428
+      },
+      {
+        "feature": "edge_count",
+        "effect_size": 0.14137187600135803,
+        "bullying_mean": 1.2763087749481201,
+        "normal_mean": 1.1043802499771118
+      }
+    ]
+  }
+}

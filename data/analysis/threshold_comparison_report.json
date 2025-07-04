@@ -1,0 +1,41 @@
+{
+  "total_subgraphs": 21577,
+  "emotion_score_range": [
+    -0.7699999999999998,
+    -0.3000143444874287
+  ],
+  "emotion_score_mean": -0.4231850407260857,
+  "emotion_score_std": 0.10020298128024,
+  "threshold_analysis": [
+    {
+      "threshold": -0.5,
+      "selected_count": 17103,
+      "selected_ratio": 0.7926495805719053,
+      "recommendation": "宽松"
+    },
+    {
+      "threshold": -0.45,
+      "selected_count": 14515,
+      "selected_ratio": 0.6727070491727303,
+      "recommendation": "宽松"
+    },
+    {
+      "threshold": -0.4,
+      "selected_count": 10878,
+      "selected_ratio": 0.5041479353014784,
+      "recommendation": "推荐"
+    },
+    {
+      "threshold": -0.35,
+      "selected_count": 6149,
+      "selected_ratio": 0.28497937618760716,
+      "recommendation": "严格"
+    },
+    {
+      "threshold": -0.3,
+      "selected_count": 0,
+      "selected_ratio": 0.0,
+      "recommendation": "过严格"
+    }
+  ]
+}

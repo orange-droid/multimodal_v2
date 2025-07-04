@@ -1,0 +1,570 @@
+{
+  "extraction_method": "weak_supervised_v6_refactored",
+  "timestamp": "2025-06-28T07:14:51.045045",
+  "configuration": {
+    "purity_threshold": 0.7,
+    "min_cluster_size": 15,
+    "eps": 0.3,
+    "min_samples": 8,
+    "max_prototypes": 15,
+    "feature_dim": 10,
+    "random_state": 42
+  },
+  "statistics": {
+    "total_sessions": 959,
+    "bullying_sessions": 299,
+    "normal_sessions": 660,
+    "total_subgraphs": 1757161,
+    "bullying_subgraphs": 557709,
+    "normal_subgraphs": 1199452,
+    "extracted_prototypes": 15
+  },
+  "quality_evaluation_method": {
+    "purity": "原型中霸凌子图的比例",
+    "discrimination": "与正常子图的特征差异",
+    "coverage": "覆盖的霸凌会话比例",
+    "stability": "原型内部特征的一致性"
+  },
+  "prototypes": [
+    {
+      "id": 1,
+      "name": "Bullying_Prototype_1",
+      "subgraph_count": 1295,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 11.930765151977539,
+        "coverage": 0.6187290969899666,
+        "stability": 0.9999999999999996,
+        "cluster_size": 1295,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 185,
+      "top_sessions": [
+        [
+          "media_session_169",
+          10
+        ],
+        [
+          "media_session_194",
+          10
+        ],
+        [
+          "media_session_208",
+          10
+        ],
+        [
+          "media_session_210",
+          10
+        ],
+        [
+          "media_session_256",
+          10
+        ]
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Bullying_Prototype_2",
+      "subgraph_count": 111,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 11.912389755249023,
+        "coverage": 0.3712374581939799,
+        "stability": 1.0,
+        "cluster_size": 111,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 111,
+      "top_sessions": [
+        [
+          "media_session_537",
+          1
+        ],
+        [
+          "media_session_541",
+          1
+        ],
+        [
+          "media_session_542",
+          1
+        ],
+        [
+          "media_session_546",
+          1
+        ],
+        [
+          "media_session_549",
+          1
+        ]
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Bullying_Prototype_3",
+      "subgraph_count": 359,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 11.858412742614746,
+        "coverage": 0.32441471571906355,
+        "stability": 1.0,
+        "cluster_size": 359,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 97,
+      "top_sessions": [
+        [
+          "media_session_917",
+          10
+        ],
+        [
+          "media_session_656",
+          9
+        ],
+        [
+          "media_session_827",
+          9
+        ],
+        [
+          "media_session_849",
+          9
+        ],
+        [
+          "media_session_701",
+          8
+        ]
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Bullying_Prototype_4",
+      "subgraph_count": 185,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 11.80172348022461,
+        "coverage": 0.6187290969899666,
+        "stability": 0.9999999999999984,
+        "cluster_size": 185,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 185,
+      "top_sessions": [
+        [
+          "media_session_104",
+          1
+        ],
+        [
+          "media_session_106",
+          1
+        ],
+        [
+          "media_session_108",
+          1
+        ],
+        [
+          "media_session_109",
+          1
+        ],
+        [
+          "media_session_110",
+          1
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Bullying_Prototype_5",
+      "subgraph_count": 555,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 11.593785285949707,
+        "coverage": 0.5317725752508361,
+        "stability": 0.9999999999999996,
+        "cluster_size": 555,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 159,
+      "top_sessions": [
+        [
+          "media_session_383",
+          9
+        ],
+        [
+          "media_session_498",
+          9
+        ],
+        [
+          "media_session_110",
+          7
+        ],
+        [
+          "media_session_167",
+          7
+        ],
+        [
+          "media_session_192",
+          7
+        ]
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Bullying_Prototype_6",
+      "subgraph_count": 751,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 11.57643985748291,
+        "coverage": 0.36789297658862874,
+        "stability": 1.0,
+        "cluster_size": 751,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 110,
+      "top_sessions": [
+        [
+          "media_session_583",
+          10
+        ],
+        [
+          "media_session_596",
+          10
+        ],
+        [
+          "media_session_600",
+          10
+        ],
+        [
+          "media_session_630",
+          10
+        ],
+        [
+          "media_session_649",
+          10
+        ]
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Bullying_Prototype_7",
+      "subgraph_count": 1048,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 11.434943199157715,
+        "coverage": 0.5819397993311036,
+        "stability": 1.0,
+        "cluster_size": 1048,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 174,
+      "top_sessions": [
+        [
+          "media_session_380",
+          15
+        ],
+        [
+          "media_session_163",
+          12
+        ],
+        [
+          "media_session_245",
+          12
+        ],
+        [
+          "media_session_259",
+          12
+        ],
+        [
+          "media_session_310",
+          12
+        ]
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Bullying_Prototype_8",
+      "subgraph_count": 1694,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 11.418231964111328,
+        "coverage": 0.6020066889632107,
+        "stability": 0.9999999999999996,
+        "cluster_size": 1694,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 180,
+      "top_sessions": [
+        [
+          "media_session_208",
+          18
+        ],
+        [
+          "media_session_256",
+          18
+        ],
+        [
+          "media_session_375",
+          18
+        ],
+        [
+          "media_session_459",
+          18
+        ],
+        [
+          "media_session_61",
+          18
+        ]
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Bullying_Prototype_9",
+      "subgraph_count": 112,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 11.400172233581543,
+        "coverage": 0.3745819397993311,
+        "stability": 1.0,
+        "cluster_size": 112,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 112,
+      "top_sessions": [
+        [
+          "media_session_537",
+          1
+        ],
+        [
+          "media_session_541",
+          1
+        ],
+        [
+          "media_session_542",
+          1
+        ],
+        [
+          "media_session_546",
+          1
+        ],
+        [
+          "media_session_549",
+          1
+        ]
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Bullying_Prototype_10",
+      "subgraph_count": 185,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 11.378002166748047,
+        "coverage": 0.6187290969899666,
+        "stability": 0.9999999999999984,
+        "cluster_size": 185,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 185,
+      "top_sessions": [
+        [
+          "media_session_104",
+          1
+        ],
+        [
+          "media_session_106",
+          1
+        ],
+        [
+          "media_session_108",
+          1
+        ],
+        [
+          "media_session_109",
+          1
+        ],
+        [
+          "media_session_110",
+          1
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "name": "Bullying_Prototype_11",
+      "subgraph_count": 1035,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 11.199061393737793,
+        "coverage": 0.35785953177257523,
+        "stability": 1.0,
+        "cluster_size": 1035,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 107,
+      "top_sessions": [
+        [
+          "media_session_727",
+          18
+        ],
+        [
+          "media_session_911",
+          18
+        ],
+        [
+          "media_session_953",
+          18
+        ],
+        [
+          "media_session_616",
+          17
+        ],
+        [
+          "media_session_628",
+          17
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "name": "Bullying_Prototype_12",
+      "subgraph_count": 630,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 11.194486618041992,
+        "coverage": 0.35785953177257523,
+        "stability": 1.0,
+        "cluster_size": 630,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 107,
+      "top_sessions": [
+        [
+          "media_session_746",
+          12
+        ],
+        [
+          "media_session_956",
+          12
+        ],
+        [
+          "media_session_555",
+          11
+        ],
+        [
+          "media_session_711",
+          11
+        ],
+        [
+          "media_session_781",
+          11
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "name": "Bullying_Prototype_13",
+      "subgraph_count": 352,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 10.861738204956055,
+        "coverage": 0.3210702341137124,
+        "stability": 1.0,
+        "cluster_size": 352,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 96,
+      "top_sessions": [
+        [
+          "media_session_617",
+          10
+        ],
+        [
+          "media_session_701",
+          9
+        ],
+        [
+          "media_session_827",
+          9
+        ],
+        [
+          "media_session_537",
+          8
+        ],
+        [
+          "media_session_567",
+          8
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Bullying_Prototype_14",
+      "subgraph_count": 1289,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 10.811790466308594,
+        "coverage": 0.6187290969899666,
+        "stability": 0.9999999999999996,
+        "cluster_size": 1289,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 185,
+      "top_sessions": [
+        [
+          "media_session_104",
+          10
+        ],
+        [
+          "media_session_106",
+          10
+        ],
+        [
+          "media_session_109",
+          10
+        ],
+        [
+          "media_session_136",
+          10
+        ],
+        [
+          "media_session_169",
+          10
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "name": "Bullying_Prototype_15",
+      "subgraph_count": 561,
+      "quality_metrics": {
+        "purity": 1.0,
+        "discrimination": 10.806949615478516,
+        "coverage": 0.5217391304347826,
+        "stability": 0.9999999999999996,
+        "cluster_size": 561,
+        "passes_purity_threshold": true
+      },
+      "covered_sessions": 156,
+      "top_sessions": [
+        [
+          "media_session_310",
+          9
+        ],
+        [
+          "media_session_476",
+          9
+        ],
+        [
+          "media_session_498",
+          9
+        ],
+        [
+          "media_session_306",
+          8
+        ],
+        [
+          "media_session_371",
+          8
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "extraction_method": "V6_adaptive_weights",
+  "total_subgraphs": 10382,
+  "extracted_prototypes": 1,
+  "optimized_weights": {
+    "structure_weight": 0.4703002849048228,
+    "emotion_weight": 0.19206539180702986,
+    "semantic_weight": 0.11439019407146334,
+    "temporal_weight": 0.22324412921668393
+  },
+  "config": {
+    "min_prototype_size": 25,
+    "max_prototypes": 15,
+    "similarity_threshold": 0.7,
+    "dbscan_eps": 0.5,
+    "dbscan_min_samples": 6,
+    "enable_adaptive_weights": true,
+    "weight_optimization_strategy": "auto",
+    "feature_weights": {
+      "size": 0.15,
+      "emotion": 0.4,
+      "node_composition": 0.25,
+      "structure": 0.2
+    }
+  },
+  "timestamp": "20250624_080454",
+  "prototype_details": [
+    {
+      "id": "adaptive_prototype_0",
+      "size": 10382,
+      "quality_score": 0.9999999999999999,
+      "statistics": {
+        "avg_size": 5.0,
+        "avg_emotion_score": -0.5,
+        "avg_comment_nodes": 3.0,
+        "avg_user_nodes": 1.0
+      }
+    }
+  ]
+}

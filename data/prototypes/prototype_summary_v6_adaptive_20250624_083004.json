@@ -1,0 +1,194 @@
+{
+  "extraction_method": "V6_adaptive_weights",
+  "total_subgraphs": 10382,
+  "extracted_prototypes": 15,
+  "optimized_weights": {
+    "size": 0.15,
+    "emotion": 0.4,
+    "node_composition": 0.25,
+    "structure": 0.2
+  },
+  "config": {
+    "min_prototype_size": 25,
+    "max_prototypes": 15,
+    "similarity_threshold": 0.7,
+    "dbscan_eps": 0.5,
+    "dbscan_min_samples": 6,
+    "enable_adaptive_weights": false,
+    "weight_optimization_strategy": "differential_evolution",
+    "feature_weights": {
+      "size": 0.15,
+      "emotion": 0.4,
+      "node_composition": 0.25,
+      "structure": 0.2
+    }
+  },
+  "timestamp": "20250624_083004",
+  "prototype_details": [
+    {
+      "id": "adaptive_prototype_12",
+      "size": 38,
+      "quality_score": 0.9837109256461612,
+      "statistics": {
+        "avg_size": 11.0,
+        "avg_emotion_score": -0.4352372804442169,
+        "avg_comment_nodes": 8.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_16",
+      "size": 49,
+      "quality_score": 0.9780181574072931,
+      "statistics": {
+        "avg_size": 11.36734693877551,
+        "avg_emotion_score": -0.45687175183837997,
+        "avg_comment_nodes": 8.36734693877551,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_25",
+      "size": 102,
+      "quality_score": 0.9705932352832988,
+      "statistics": {
+        "avg_size": 11.343137254901961,
+        "avg_emotion_score": -0.4560835864637881,
+        "avg_comment_nodes": 8.343137254901961,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_23",
+      "size": 35,
+      "quality_score": 0.9701430151837187,
+      "statistics": {
+        "avg_size": 5.0,
+        "avg_emotion_score": -0.4916821989020028,
+        "avg_comment_nodes": 3.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_17",
+      "size": 90,
+      "quality_score": 0.9600433048268631,
+      "statistics": {
+        "avg_size": 5.0,
+        "avg_emotion_score": -0.4901104079780165,
+        "avg_comment_nodes": 3.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_15",
+      "size": 78,
+      "quality_score": 0.9532093263219723,
+      "statistics": {
+        "avg_size": 12.0,
+        "avg_emotion_score": -0.45593291387538354,
+        "avg_comment_nodes": 9.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_21",
+      "size": 25,
+      "quality_score": 0.9477822178522196,
+      "statistics": {
+        "avg_size": 6.0,
+        "avg_emotion_score": -0.48832905428145773,
+        "avg_comment_nodes": 3.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_26",
+      "size": 48,
+      "quality_score": 0.9385424747153047,
+      "statistics": {
+        "avg_size": 11.0,
+        "avg_emotion_score": -0.5006179403202183,
+        "avg_comment_nodes": 8.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_7",
+      "size": 356,
+      "quality_score": 0.9373796362968821,
+      "statistics": {
+        "avg_size": 12.0,
+        "avg_emotion_score": -0.4680018399289643,
+        "avg_comment_nodes": 9.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_27",
+      "size": 31,
+      "quality_score": 0.9347239662961585,
+      "statistics": {
+        "avg_size": 6.0,
+        "avg_emotion_score": -0.5104165674029945,
+        "avg_comment_nodes": 3.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_20",
+      "size": 40,
+      "quality_score": 0.9269596102908225,
+      "statistics": {
+        "avg_size": 7.0,
+        "avg_emotion_score": -0.49823711402992166,
+        "avg_comment_nodes": 4.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_14",
+      "size": 33,
+      "quality_score": 0.9255595639165698,
+      "statistics": {
+        "avg_size": 8.0,
+        "avg_emotion_score": -0.47442871203598685,
+        "avg_comment_nodes": 5.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_22",
+      "size": 103,
+      "quality_score": 0.9130761278311926,
+      "statistics": {
+        "avg_size": 10.0,
+        "avg_emotion_score": -0.45933066484459534,
+        "avg_comment_nodes": 7.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_6",
+      "size": 448,
+      "quality_score": 0.9036267915762706,
+      "statistics": {
+        "avg_size": 11.0,
+        "avg_emotion_score": -0.4691120648364679,
+        "avg_comment_nodes": 8.0,
+        "avg_user_nodes": 1.0
+      }
+    },
+    {
+      "id": "adaptive_prototype_18",
+      "size": 89,
+      "quality_score": 0.9023945406463554,
+      "statistics": {
+        "avg_size": 9.0,
+        "avg_emotion_score": -0.4414113709716732,
+        "avg_comment_nodes": 6.0,
+        "avg_user_nodes": 1.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,455 @@
+{
+  "extraction_info": {
+    "timestamp": "2025-06-24T07:55:42.901055",
+    "total_subgraphs": 10382,
+    "clustered_subgraphs": 11389,
+    "prototypes_count": 12,
+    "processing_time": 0.674994
+  },
+  "prototypes": [
+    {
+      "name": "cluster_7_dbscan_7",
+      "subgraph_count": 486,
+      "quality_score": 0.9628915071487427,
+      "representative_features": {
+        "avg_size": 12.0,
+        "avg_emotion_score": -0.4646239824732141,
+        "size_range": [
+          12,
+          12
+        ],
+        "emotion_range": [
+          -0.6416293985139528,
+          -0.40028975060693417
+        ],
+        "avg_comment_count": 9.0,
+        "comment_range": [
+          9,
+          9
+        ],
+        "avg_user_count": 1.0,
+        "user_range": [
+          1,
+          1
+        ],
+        "avg_word_count": 1.0,
+        "word_range": [
+          1,
+          1
+        ],
+        "avg_video_count": 1.0,
+        "video_range": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "cluster_12_dbscan_12",
+      "subgraph_count": 118,
+      "quality_score": 0.9593227922916412,
+      "representative_features": {
+        "avg_size": 5.0,
+        "avg_emotion_score": -0.4886195699419152,
+        "size_range": [
+          5,
+          5
+        ],
+        "emotion_range": [
+          -0.6107263254972345,
+          -0.401791187338255
+        ],
+        "avg_comment_count": 3.0,
+        "comment_range": [
+          3,
+          3
+        ],
+        "avg_user_count": 1.0,
+        "user_range": [
+          1,
+          1
+        ],
+        "avg_word_count": 0.0,
+        "word_range": [
+          0,
+          0
+        ],
+        "avg_video_count": 1.0,
+        "video_range": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "cluster_19_size_12_13",
+      "subgraph_count": 577,
+      "quality_score": 0.9513256967067718,
+      "representative_features": {
+        "avg_size": 12.0,
+        "avg_emotion_score": -0.476680961864222,
+        "size_range": [
+          12,
+          12
+        ],
+        "emotion_range": [
+          -0.74028155782036,
+          -0.40028975060693417
+        ],
+        "avg_comment_count": 9.006932409012132,
+        "comment_range": [
+          9,
+          10
+        ],
+        "avg_user_count": 1.0,
+        "user_range": [
+          1,
+          1
+        ],
+        "avg_word_count": 0.9930675909878682,
+        "word_range": [
+          0,
+          1
+        ],
+        "avg_video_count": 1.0,
+        "video_range": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "cluster_6_dbscan_6",
+      "subgraph_count": 629,
+      "quality_score": 0.941903793811798,
+      "representative_features": {
+        "avg_size": 11.0,
+        "avg_emotion_score": -0.4706222767870844,
+        "size_range": [
+          11,
+          11
+        ],
+        "emotion_range": [
+          -0.6512057599173653,
+          -0.40003161669837095
+        ],
+        "avg_comment_count": 8.0,
+        "comment_range": [
+          8,
+          8
+        ],
+        "avg_user_count": 1.0,
+        "user_range": [
+          1,
+          1
+        ],
+        "avg_word_count": 1.0,
+        "word_range": [
+          1,
+          1
+        ],
+        "avg_video_count": 1.0,
+        "video_range": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "cluster_5_dbscan_5",
+      "subgraph_count": 716,
+      "quality_score": 0.9146192073822021,
+      "representative_features": {
+        "avg_size": 10.0,
+        "avg_emotion_score": -0.46899854680017733,
+        "size_range": [
+          10,
+          10
+        ],
+        "emotion_range": [
+          -0.6352747617615762,
+          -0.4002478874525428
+        ],
+        "avg_comment_count": 7.0,
+        "comment_range": [
+          7,
+          7
+        ],
+        "avg_user_count": 1.0,
+        "user_range": [
+          1,
+          1
+        ],
+        "avg_word_count": 1.0,
+        "word_range": [
+          1,
+          1
+        ],
+        "avg_video_count": 1.0,
+        "video_range": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "cluster_18_size_10_11",
+      "subgraph_count": 1511,
+      "quality_score": 0.9103268444538115,
+      "representative_features": {
+        "avg_size": 10.465916611515553,
+        "avg_emotion_score": -0.4779475424937248,
+        "size_range": [
+          10,
+          11
+        ],
+        "emotion_range": [
+          -0.7499851851851852,
+          -0.40003161669837095
+        ],
+        "avg_comment_count": 7.471872931833223,
+        "comment_range": [
+          7,
+          9
+        ],
+        "avg_user_count": 1.0,
+        "user_range": [
+          1,
+          1
+        ],
+        "avg_word_count": 0.9940436796823295,
+        "word_range": [
+          0,
+          1
+        ],
+        "avg_video_count": 1.0,
+        "video_range": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "cluster_0_dbscan_0",
+      "subgraph_count": 2110,
+      "quality_score": 0.9092459619045257,
+      "representative_features": {
+        "avg_size": 5.0,
+        "avg_emotion_score": -0.5288587968097211,
+        "size_range": [
+          5,
+          5
+        ],
+        "emotion_range": [
+          -0.7699999999999998,
+          -0.40004224917071834
+        ],
+        "avg_comment_count": 3.0,
+        "comment_range": [
+          3,
+          3
+        ],
+        "avg_user_count": 1.0,
+        "user_range": [
+          1,
+          1
+        ],
+        "avg_word_count": 0.0,
+        "word_range": [
+          0,
+          0
+        ],
+        "avg_video_count": 1.0,
+        "video_range": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "cluster_15_size_4_5",
+      "subgraph_count": 2312,
+      "quality_score": 0.9049158811569213,
+      "representative_features": {
+        "avg_size": 5.0,
+        "avg_emotion_score": -0.5300866486975454,
+        "size_range": [
+          5,
+          5
+        ],
+        "emotion_range": [
+          -0.7699999999999998,
+          -0.40004224917071834
+        ],
+        "avg_comment_count": 3.0,
+        "comment_range": [
+          3,
+          3
+        ],
+        "avg_user_count": 1.0,
+        "user_range": [
+          1,
+          1
+        ],
+        "avg_word_count": 0.0,
+        "word_range": [
+          0,
+          0
+        ],
+        "avg_video_count": 1.0,
+        "video_range": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "cluster_11_dbscan_11",
+      "subgraph_count": 286,
+      "quality_score": 0.8710260450839995,
+      "representative_features": {
+        "avg_size": 6.0,
+        "avg_emotion_score": -0.5063686572407559,
+        "size_range": [
+          6,
+          6
+        ],
+        "emotion_range": [
+          -0.7305666666666664,
+          -0.40311670328701527
+        ],
+        "avg_comment_count": 3.0,
+        "comment_range": [
+          3,
+          3
+        ],
+        "avg_user_count": 1.0,
+        "user_range": [
+          1,
+          1
+        ],
+        "avg_word_count": 1.0,
+        "word_range": [
+          1,
+          1
+        ],
+        "avg_video_count": 1.0,
+        "video_range": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "cluster_9_dbscan_9",
+      "subgraph_count": 161,
+      "quality_score": 0.8532950818538665,
+      "representative_features": {
+        "avg_size": 9.0,
+        "avg_emotion_score": -0.4729864656733229,
+        "size_range": [
+          9,
+          9
+        ],
+        "emotion_range": [
+          -0.612362410267421,
+          -0.4000214593258074
+        ],
+        "avg_comment_count": 6.0,
+        "comment_range": [
+          6,
+          6
+        ],
+        "avg_user_count": 1.0,
+        "user_range": [
+          1,
+          1
+        ],
+        "avg_word_count": 1.0,
+        "word_range": [
+          1,
+          1
+        ],
+        "avg_video_count": 1.0,
+        "video_range": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "cluster_4_dbscan_4",
+      "subgraph_count": 645,
+      "quality_score": 0.8438829004764556,
+      "representative_features": {
+        "avg_size": 9.0,
+        "avg_emotion_score": -0.4765387578488255,
+        "size_range": [
+          9,
+          9
+        ],
+        "emotion_range": [
+          -0.672514924916994,
+          -0.40000589841015805
+        ],
+        "avg_comment_count": 6.0,
+        "comment_range": [
+          6,
+          6
+        ],
+        "avg_user_count": 1.0,
+        "user_range": [
+          1,
+          1
+        ],
+        "avg_word_count": 1.0,
+        "word_range": [
+          1,
+          1
+        ],
+        "avg_video_count": 1.0,
+        "video_range": [
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "name": "cluster_1_dbscan_1",
+      "subgraph_count": 1838,
+      "quality_score": 0.8328337490558624,
+      "representative_features": {
+        "avg_size": 6.0,
+        "avg_emotion_score": -0.5136595449030374,
+        "size_range": [
+          6,
+          6
+        ],
+        "emotion_range": [
+          -0.7305666666666664,
+          -0.4001135088195404
+        ],
+        "avg_comment_count": 3.0,
+        "comment_range": [
+          3,
+          3
+        ],
+        "avg_user_count": 1.0,
+        "user_range": [
+          1,
+          1
+        ],
+        "avg_word_count": 1.0,
+        "word_range": [
+          1,
+          1
+        ],
+        "avg_video_count": 1.0,
+        "video_range": [
+          1,
+          1
+        ]
+      }
+    }
+  ]
+}

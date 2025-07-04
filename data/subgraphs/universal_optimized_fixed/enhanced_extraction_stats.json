@@ -1,0 +1,25 @@
+{
+  "extraction_timestamp": "2025-06-28T08:37:28.846658",
+  "subgraph_type_distribution": {
+    "multi_user_2": 17136,
+    "multi_user_3": 7594,
+    "multi_user_4": 1894,
+    "traditional_multi": 2862,
+    "comment_only": 2853,
+    "random_combo_small": 959
+  },
+  "size_distribution": {
+    "3": 6801,
+    "5": 11628,
+    "7": 11511,
+    "6": 1120,
+    "8": 1015,
+    "4": 243
+  },
+  "enhancement_features": {
+    "multi_user_enabled": true,
+    "smart_selection_enabled": true,
+    "user_interactions_loaded": 55038,
+    "size_range": "3-8"
+  }
+}

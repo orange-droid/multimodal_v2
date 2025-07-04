@@ -1,0 +1,38 @@
+{
+  "extraction_method": "session_enhanced_v6",
+  "timestamp": "2025-06-28T05:58:17.411186",
+  "statistics": {
+    "total_sessions": 959,
+    "bullying_sessions": 299,
+    "normal_sessions": 660,
+    "total_subgraphs": 917250,
+    "bullying_candidate_subgraphs": 557709,
+    "normal_reference_subgraphs": 359541,
+    "high_quality_bullying_subgraphs": 61833,
+    "prototypes_count": 15,
+    "processing_time": 0
+  },
+  "configuration": {
+    "min_prototype_size": 50,
+    "max_prototypes": 15,
+    "session_label_weight": 0.3,
+    "bullying_session_priority": 2.0,
+    "normal_sample_ratio": 0.3,
+    "dbscan_eps": 0.4,
+    "dbscan_min_samples": 10,
+    "similarity_threshold": 0.75,
+    "feature_weights": {
+      "session_signal": 0.25,
+      "attack_features": 0.3,
+      "user_behavior": 0.2,
+      "structure": 0.25
+    }
+  },
+  "prototypes": [
+    {
+      "id": 1,
+      "name": "bullying_prototype_v6_220",
+      "subgraph_count": 50,
+      "quality_score": 0.8325843367615572,
+      "representative_features": {
+        "avg_bullying_score": 

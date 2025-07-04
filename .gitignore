@@ -1,0 +1,29 @@
+# 大文件
+data/processed/multimodal/multimodal_data.json
+data/graphs/heterogeneous_graph_final.pkl
+data/graphs/heterogeneous_graph_with_comments.pkl
+data/processed/text/processed_text_data.json
+data/processed/metadata/processed_metadata.json
+
+# 其他数据文件
+data/graphs/*.pkl
+data/subgraphs/*/*.pkl
+data/prototypes/*.pkl
+data/models/*
+data/features/*.pkl
+data/processed/*
+data/raw/*
+
+# 日志和临时文件
+*.log
+logs/
+copy/
+__pycache__/
+*.pyc
+.DS_Store
+
+# 文档（除了README.md）
+4.0版本记录/
+参考文件/
+*.md
+!README.md
