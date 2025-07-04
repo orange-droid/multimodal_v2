@@ -4,40 +4,42 @@
 
 ## 项目结构
 
+```
 ProtoBully/
-├── src/                           <!-- 源代码目录 -->
-│   ├── data_processing/          <!-- 数据预处理模块 -->
-│   │   ├── base_processor.py     <!-- 基础数据处理器 -->
-│   │   ├── metadata_processor.py <!-- 元数据处理 -->
-│   │   ├── multimodal_processor.py <!-- 多模态数据处理 -->
-│   │   ├── text_processor.py     <!-- 文本数据处理 -->
-│   │   └── video_processor.py    <!-- 视频数据处理 -->
+├── src/                           # 源代码目录
+│   ├── data_processing/          # 数据预处理模块
+│   │   ├── base_processor.py     # 基础数据处理器
+│   │   ├── metadata_processor.py # 元数据处理
+│   │   ├── multimodal_processor.py # 多模态数据处理
+│   │   ├── text_processor.py     # 文本数据处理
+│   │   └── video_processor.py    # 视频数据处理
 │   │
-│   ├── feature_extraction/       <!-- 特征提取模块 -->
+│   ├── feature_extraction/       # 特征提取模块
 │   │   ├── base_feature_extractor.py
 │   │   ├── bert_comment_enhancer.py
 │   │   ├── multimodal_feature_extractor.py
 │   │   ├── text_feature_extractor.py
 │   │   └── user_feature_extractor.py
 │   │
-│   ├── graph_construction/       <!-- 图构建模块 -->
+│   ├── graph_construction/       # 图构建模块
 │   │   ├── base_graph_builder.py
 │   │   ├── graph_construction_runner.py
 │   │   └── heterogeneous_graph_builder.py
 │   │
-│   ├── multimodal-aligner/       <!-- 多模态对齐模块 -->
+│   ├── multimodal-aligner/      # 多模态对齐模块
 │   │   └── multimodal_structure_aligner_v4_optimized.py
 │   │
-│   ├── prototype/                <!-- 原型提取和检测模块 -->
+│   ├── prototype/               # 原型提取和检测模块
 │   │   ├── bert_emotion_analyzer.py
 │   │   ├── bullying_subgraph_filter.py
 │   │   ├── cyberbullying_detector_v6.py
 │   │   └── prototype_extractor_v6_refactored.py
 │   │
-│   └── utils/                    <!-- 工具类 -->
-│       ├── bert_emotion_analyzer.py
-│       ├── config.py
-│       └── logger.py
+│   └── utils/                   # 工具类
+       ├── bert_emotion_analyzer.py
+       ├── config.py
+       └── logger.py
+```
 
 ## 运行说明
 
