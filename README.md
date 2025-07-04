@@ -4,7 +4,7 @@
 
 ## 项目结构
 
-\\\
+\`\`\`
 ProtoBully/
  src/                           # 源代码目录
     data_processing/          # 数据预处理模块
