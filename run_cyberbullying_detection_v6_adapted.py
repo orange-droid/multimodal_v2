@@ -44,9 +44,9 @@ def main():
         detector = CyberbullyingDetectorV6Adapted()
         
         # 数据路径配置 - 使用最新基于修复子图的原型
-        prototype_path = "data/prototypes/extracted_prototypes_v6_refactored_20250628_100456.pkl"  # 最新原型
+        prototype_path = "data/prototypes/extracted_prototypes_v6_refactored_20250703_092014.pkl"  # 最新原型
         session_labels_path = "data/processed/prototypes/session_label_mapping.json"
-        subgraph_dir = "data/subgraphs/universal_optimized_fixed"  # 最新修复的子图数据
+        subgraph_dir = "data/subgraphs/universal_enhanced_10_12"  # 7月3号80%准确率使用的子图数据
         graph_path = "data/graphs/heterogeneous_graph_final.pkl"  # 异构图（包含真实特征）
         
         print(f"📁 数据路径配置:")

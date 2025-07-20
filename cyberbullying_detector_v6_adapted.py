@@ -49,7 +49,7 @@ class BullyingDetectionNN(nn.Module):
         
         # 输出层
         layers.append(nn.Linear(prev_dim, 1))
-        layers.append(nn.Sigmoid())
+        # 移除Sigmoid，因为使用BCEWithLogitsLoss
         
         self.network = nn.Sequential(*layers)
     
@@ -65,8 +65,9 @@ class NeuralNetworkWrapper:
     def predict(self, X):
         with torch.no_grad():
             X_tensor = torch.FloatTensor(X)
-            outputs = self.model(X_tensor)
-            predictions = (outputs > 0.5).int().numpy()
+            logits = self.model(X_tensor).squeeze()
+            proba = torch.sigmoid(logits)
+            predictions = (proba > 0.5).int().numpy()
             if predictions.ndim == 0:
                 predictions = np.array([predictions])
             return predictions
@@ -74,8 +75,8 @@ class NeuralNetworkWrapper:
     def predict_proba(self, X):
         with torch.no_grad():
             X_tensor = torch.FloatTensor(X)
-            outputs = self.model(X_tensor)
-            proba_positive = outputs.numpy()
+            logits = self.model(X_tensor).squeeze()
+            proba_positive = torch.sigmoid(logits).numpy()
             if proba_positive.ndim == 0:
                 proba_positive = np.array([proba_positive])
             proba_negative = 1 - proba_positive
@@ -90,27 +91,6 @@ class CyberbullyingDetectorV6Adapted:
     def __init__(self):
         """初始化霸凌检测器"""
         self.logger = self._setup_logger()
-        self.prototypes = None
-        self.session_labels = None
-        self.universal_subgraphs = {}
-        self.models = {}
-        self.feature_scaler = StandardScaler()
-        self.feature_names = []
-        
-        # 多权重组合预设
-        self.weight_combinations = [
-            (0.5, 0.3, 0.2),  # 结构主导
-            (0.4, 0.4, 0.2),  # 结构+聚合情感平衡
-            (0.4, 0.3, 0.3),  # 三者相对平衡
-            (0.6, 0.2, 0.2),  # 更重视结构
-            (0.3, 0.5, 0.2),  # 聚合情感主导
-            (0.3, 0.4, 0.3),  # 情感主导(聚合+分层)
-        ]
-        
-        self.best_weights = (0.5, 0.3, 0.2)  # 默认权重
-        self.best_performance = 0.0
-        
-        self.logger.info("CyberbullyingDetectorV6Adapted initialized")
         
         # 数据存储
         self.prototypes = []
@@ -120,24 +100,22 @@ class CyberbullyingDetectorV6Adapted:
         
         # 模型和特征
         self.models = {}
-        self.scaler = StandardScaler()
         self.feature_scaler = StandardScaler()  # 特征标准化器
         self.feature_names = []
         
         # 优化结果
-        self.best_weights = None
+        self.best_weights = (0.5, 0.3, 0.2)  # 默认权重
         self.best_performance = 0.0
         
-        # 权重组合候选
+        # 权重组合候选（优化版本，减少组合数）
         self.weight_combinations = [
             (0.5, 0.3, 0.2),  # 平衡型
             (0.4, 0.4, 0.2),  # 特征重视型
-            (0.4, 0.3, 0.3),  # 分层特征重视型
             (0.6, 0.2, 0.2),  # 结构重视型
-            (0.8, 0.1, 0.1),  # 极端结构重视型（新增）
             (0.3, 0.5, 0.2),  # 真实特征重视型
-            (0.3, 0.4, 0.3),  # 特征平衡型
         ]
+        
+        self.logger.info("CyberbullyingDetectorV6Adapted initialized")
     
     def _setup_logger(self):
         """设置日志系统"""
@@ -340,7 +318,7 @@ class CyberbullyingDetectorV6Adapted:
             if sg_features['comment_features'] and pt_features['comment_features']:
                 sg_comment_mean = np.array(sg_features['comment_features']).mean(axis=0)
                 pt_comment_mean = np.array(pt_features['comment_features']).mean(axis=0)
-                comment_sim = 1.0 - np.linalg.norm(sg_comment_mean - pt_comment_mean) / 8.0
+                comment_sim = 1.0 - np.linalg.norm(sg_comment_mean - pt_comment_mean) / 17.0
                 similarities.append(max(0.0, comment_sim))
             
             # User特征相似度  
@@ -491,19 +469,19 @@ class CyberbullyingDetectorV6Adapted:
         """聚合节点特征为子图级特征"""
         aggregated = []
         
-        # Comment特征聚合 (8维特征)
+        # Comment特征聚合 (17维特征)
         if node_features['comment_features']:
             comment_matrix = np.array(node_features['comment_features'])
             
-            # 基础统计特征 (8维平均值 + 8维最大值 = 16维)
-            aggregated.extend(comment_matrix.mean(axis=0).tolist())  # 8维
-            aggregated.extend(comment_matrix.max(axis=0).tolist())   # 8维
+            # 基础统计特征 (17维平均值 + 17维最大值 = 34维)
+            aggregated.extend(comment_matrix.mean(axis=0).tolist())  # 17维
+            aggregated.extend(comment_matrix.max(axis=0).tolist())   # 17维
             
-            # 重点关注攻击性特征（基于特征分析）
-            # 假设维度4-5是攻击词相关特征
-            if comment_matrix.shape[1] >= 6:
-                attack_related_mean = comment_matrix[:, 4:6].mean()  # 攻击词相关平均值
-                attack_related_max = comment_matrix[:, 4:6].max()    # 攻击词相关最大值
+            # 重点关注攻击性特征（基于特征验证）
+            # 第5-6维是攻击词相关特征：攻击词数、攻击词比例
+            if comment_matrix.shape[1] >= 7:
+                attack_related_mean = comment_matrix[:, 5:7].mean()  # 攻击词相关平均值
+                attack_related_max = comment_matrix[:, 5:7].max()    # 攻击词相关最大值
                 aggregated.extend([attack_related_mean, attack_related_max])  # 2维
             else:
                 aggregated.extend([0.0, 0.0])
@@ -511,9 +489,9 @@ class CyberbullyingDetectorV6Adapted:
             # 评论数量统计
             aggregated.append(len(node_features['comment_features']))  # 1维
         else:
-            aggregated.extend([0.0] * 19)  # 16 + 2 + 1
+            aggregated.extend([0.0] * 37)  # 34 + 2 + 1
         
-        # User特征聚合 (53维特征)
+        # User特征聚合 (53维特征) - 修复错误的攻击性特征假设
         if node_features['user_features']:
             user_matrix = np.array(node_features['user_features'])
             
@@ -521,19 +499,16 @@ class CyberbullyingDetectorV6Adapted:
             key_user_features = user_matrix[:, :10] if user_matrix.shape[1] >= 10 else user_matrix
             aggregated.extend(key_user_features.mean(axis=0).tolist())  # 前10维平均值
             
-            # 重点关注攻击行为特征（假设维度0-1是攻击性指标）
-            if user_matrix.shape[1] >= 2:
-                attack_behavior_mean = user_matrix[:, 0:2].mean()  # 攻击行为平均值
-                attack_behavior_max = user_matrix[:, 0:2].max()    # 攻击行为最大值
-                aggregated.extend([attack_behavior_mean, attack_behavior_max])  # 2维
-            else:
-                aggregated.extend([0.0, 0.0])
+            # ✅ 修复：移除错误的攻击性特征假设
+            # ❌ 原代码错误地假设维度0-1是攻击性指标，实际上可能是网络度数等基础特征
+            # ❌ 真正的攻击性特征(avg_bullying_ratio, max_bullying_ratio)在53维中位置不确定
+            # ✅ 为避免错误假设影响模型，移除这2维错误特征
                 
             # 用户数量统计
             aggregated.append(len(node_features['user_features']))  # 1维
         else:
-            # 补充空特征 (10 + 2 + 1 = 13维)
-            aggregated.extend([0.0] * 13)
+            # 补充空特征 (10 + 1 = 11维，移除了2维错误攻击性特征)
+            aggregated.extend([0.0] * 11)
         
         # Word特征聚合 (4维特征)
         if node_features['word_features']:
@@ -650,22 +625,56 @@ class CyberbullyingDetectorV6Adapted:
         """提取所有会话的特征"""
         self.logger.info("Extracting features for all sessions...")
         
+        # 导入tqdm用于显示进度条
+        try:
+            from tqdm import tqdm
+            use_tqdm = True
+        except ImportError:
+            use_tqdm = False
+            self.logger.warning("tqdm not available, will not show progress bar")
+        
         X = []
         y = []
         session_ids = []
         
-        for session_id in self.session_labels.keys():
-            if session_id in self.universal_subgraphs:
+        # 获取所有有效的会话ID
+        valid_session_ids = [sid for sid in self.session_labels.keys() if sid in self.universal_subgraphs]
+        
+        self.logger.info(f"Processing {len(valid_session_ids)} sessions...")
+        
+        # 使用进度条显示处理进度
+        if use_tqdm:
+            session_iterator = tqdm(valid_session_ids, desc="特征提取进度", 
+                                  unit="sessions", ncols=100)
+        else:
+            session_iterator = valid_session_ids
+            
+        failed_sessions = 0
+        
+        for i, session_id in enumerate(session_iterator):
+            try:
                 features = self.extract_session_features(session_id, weights)
                 if features is not None:
                     X.append(features)
                     y.append(self.session_labels[session_id]['is_bullying'])
                     session_ids.append(session_id)
+                else:
+                    failed_sessions += 1
+            except Exception as e:
+                failed_sessions += 1
+                self.logger.warning(f"Failed to extract features for session {session_id}: {e}")
+            
+            # 每100个会话记录一次进度（如果没有tqdm）
+            if not use_tqdm and (i + 1) % 100 == 0:
+                self.logger.info(f"Processed {i+1}/{len(valid_session_ids)} sessions "
+                               f"({(i+1)/len(valid_session_ids)*100:.1f}%)")
         
         X = np.array(X)
         y = np.array(y)
         
-        self.logger.info(f"Extracted features for {len(X)} sessions")
+        self.logger.info(f"Successfully extracted features for {len(X)} sessions")
+        if failed_sessions > 0:
+            self.logger.warning(f"Failed to extract features for {failed_sessions} sessions")
         self.logger.info(f"Feature dimension: {X.shape[1] if len(X) > 0 else 0}")
         
         # 生成特征名称
@@ -674,10 +683,10 @@ class CyberbullyingDetectorV6Adapted:
         return X, y, session_ids
     
     def _generate_feature_names(self) -> List[str]:
-        """生成特征名称"""
+        """生成特征名称（优化版本：原型特征在前，真实特征在后）"""
         feature_names = []
         
-        # 每个原型的5个特征
+        # 第一部分：每个原型的5个特征
         for i, prototype in enumerate(self.prototypes):
             prototype_name = prototype.get('name', f'Prototype_{i+1}')
             feature_names.extend([
@@ -688,18 +697,18 @@ class CyberbullyingDetectorV6Adapted:
                 f'{prototype_name}_match_ratio'
             ])
         
-        # 真实节点特征名称
-        # Comment特征 (19维)
-        for i in range(8):
+        # 第二部分：真实节点特征名称
+        # Comment特征 (37维)
+        for i in range(17):
             feature_names.append(f'comment_mean_{i}')
-        for i in range(8):
+        for i in range(17):
             feature_names.append(f'comment_max_{i}')
         feature_names.extend(['comment_attack_mean', 'comment_attack_max', 'comment_count'])
         
-        # User特征 (13维)
+        # User特征 (11维，修复后移除了2维错误攻击性特征)
         for i in range(10):
             feature_names.append(f'user_key_mean_{i}')
-        feature_names.extend(['user_attack_mean', 'user_attack_max', 'user_count'])
+        feature_names.append('user_count')  # 移除了错误的user_attack_mean和user_attack_max
         
         # Word特征 (9维)
         for i in range(4):
@@ -708,7 +717,7 @@ class CyberbullyingDetectorV6Adapted:
             feature_names.append(f'word_std_{i}')
         feature_names.append('word_count')
         
-        # 会话统计特征
+        # 第三部分：会话统计特征
         feature_names.extend([
             'total_subgraphs',
             'total_comments',
@@ -724,7 +733,7 @@ class CyberbullyingDetectorV6Adapted:
         self.feature_names = feature_names
         return feature_names
     
-    def train_models(self, X: np.ndarray, y: np.ndarray, test_size: float = 0.3):
+    def train_models(self, X: np.ndarray, y: np.ndarray, test_size: float = 0.2):
         """训练多个检测模型"""
         self.logger.info(f"Training models with {len(X)} samples, test_size={test_size}")
         
@@ -739,7 +748,7 @@ class CyberbullyingDetectorV6Adapted:
         
         models_config = {
             'RandomForest': {
-                'model': RandomForestClassifier(n_estimators=100, random_state=42),
+                'model': RandomForestClassifier(n_estimators=100, random_state=42,class_weight="balanced"),
                 'params': {
                     'n_estimators': [50, 100, 200],
                     'max_depth': [10, 20, None],
@@ -747,7 +756,7 @@ class CyberbullyingDetectorV6Adapted:
                 }
             },
             'LogisticRegression': {
-                'model': LogisticRegression(random_state=42, max_iter=1000),
+                'model': LogisticRegression(random_state=42, max_iter=1000,class_weight="balanced"),
                 'params': {
                     'C': [0.1, 1.0, 10.0],
                     'penalty': ['l1', 'l2'],
@@ -827,7 +836,9 @@ class CyberbullyingDetectorV6Adapted:
             
             # 创建模型
             model = BullyingDetectionNN(input_dim=X_train.shape[1])
-            criterion = nn.BCELoss()
+            # 计算类别权重：正常样本数/霸凌样本数
+            pos_weight = torch.tensor([np.sum(y_train == 0) / np.sum(y_train == 1)], dtype=torch.float32)
+            criterion = nn.BCEWithLogitsLoss(pos_weight=pos_weight)
             optimizer = optim.Adam(model.parameters(), lr=0.001)
             
             # 训练
@@ -849,7 +860,8 @@ class CyberbullyingDetectorV6Adapted:
             # 评估
             model.eval()
             with torch.no_grad():
-                y_pred_proba = model(X_test_tensor).numpy()
+                logits = model(X_test_tensor).squeeze()
+                y_pred_proba = torch.sigmoid(logits).numpy()  # 手动应用sigmoid
                 y_pred = (y_pred_proba > 0.5).astype(int)
             
             # 计算指标
@@ -876,23 +888,176 @@ class CyberbullyingDetectorV6Adapted:
             self.logger.error(f"Error training neural network: {e}")
             return None
     
+    def extract_real_features_only(self) -> Tuple[np.ndarray, np.ndarray, List[str]]:
+        """只提取真实节点特征（不依赖权重的部分）"""
+        self.logger.info("Extracting real node features for all sessions...")
+        
+        # 导入tqdm用于显示进度条
+        try:
+            from tqdm import tqdm
+            use_tqdm = True
+        except ImportError:
+            use_tqdm = False
+            
+        real_features_list = []
+        y = []
+        session_ids = []
+        
+        valid_session_ids = [sid for sid in self.session_labels.keys() if sid in self.universal_subgraphs]
+        
+        if use_tqdm:
+            session_iterator = tqdm(valid_session_ids, desc="提取真实特征", unit="sessions", ncols=100)
+        else:
+            session_iterator = valid_session_ids
+            
+        for session_id in session_iterator:
+            try:
+                session_subgraphs = self.universal_subgraphs[session_id]
+                
+                # 提取真实节点特征
+                session_node_features = {
+                    'comment_features': [],
+                    'user_features': [],
+                    'word_features': []
+                }
+                
+                for subgraph in session_subgraphs:
+                    subgraph_features = self.extract_real_node_features(subgraph)
+                    
+                    for feature_type in session_node_features.keys():
+                        if feature_type in subgraph_features:
+                            session_node_features[feature_type].extend(subgraph_features[feature_type])
+                
+                # 聚合真实节点特征
+                real_features = self.aggregate_node_features(session_node_features)
+                
+                # 会话统计特征
+                total_subgraphs = len(session_subgraphs)
+                total_comments = sum(len(sg.get('nodes', {}).get('comment', [])) for sg in session_subgraphs)
+                total_users = sum(len(sg.get('nodes', {}).get('user', [])) for sg in session_subgraphs)
+                total_words = sum(len(sg.get('nodes', {}).get('word', [])) for sg in session_subgraphs)
+                total_edges = sum(sum(len(edge_list) for edge_list in sg.get('edges', {}).values()) 
+                                for sg in session_subgraphs)
+                
+                real_features.extend([
+                    total_subgraphs, total_comments, total_users, total_words, total_edges,
+                    total_comments / total_subgraphs if total_subgraphs > 0 else 0,
+                    total_users / total_subgraphs if total_subgraphs > 0 else 0,
+                    total_words / total_subgraphs if total_subgraphs > 0 else 0,
+                    total_edges / total_subgraphs if total_subgraphs > 0 else 0
+                ])
+                
+                real_features_list.append(real_features)
+                y.append(self.session_labels[session_id]['is_bullying'])
+                session_ids.append(session_id)
+                
+            except Exception as e:
+                self.logger.warning(f"Failed to extract real features for session {session_id}: {e}")
+        
+        real_features_matrix = np.array(real_features_list)
+        y = np.array(y)
+        
+        self.logger.info(f"Extracted real features for {len(real_features_matrix)} sessions")
+        self.logger.info(f"Real features dimension: {real_features_matrix.shape[1] if len(real_features_matrix) > 0 else 0}")
+        
+        return real_features_matrix, y, session_ids
+    
+    def extract_prototype_features_only(self, session_ids: List[str], weights: Tuple[float, float, float]) -> np.ndarray:
+        """只提取原型相似度特征（依赖权重的部分）"""
+        self.logger.info(f"Extracting prototype features with weights {weights}...")
+        
+        # 导入tqdm用于显示进度条
+        try:
+            from tqdm import tqdm
+            use_tqdm = True
+        except ImportError:
+            use_tqdm = False
+        
+        prototype_features_list = []
+        
+        # 使用进度条显示处理进度
+        if use_tqdm:
+            session_iterator = tqdm(session_ids, desc=f"权重{weights}原型特征", unit="sessions", ncols=100)
+        else:
+            session_iterator = session_ids
+            
+        for i, session_id in enumerate(session_iterator):
+            try:
+                session_subgraphs = self.universal_subgraphs[session_id]
+                prototype_features = []
+                
+                # 对每个原型计算相似度特征（使用正确的数据访问方式）
+                for prototype in self.prototypes:
+                    prototype_subgraph = prototype.get('representative_subgraph', {})
+                    if not prototype_subgraph:
+                        self.logger.warning(f"No representative_subgraph in prototype {prototype.get('id', 'unknown')}")
+                        prototype_features.extend([0.0, 0.0, 0.0, 0.0, 0.0])
+                        continue
+                    
+                    # 计算会话中所有子图与该原型的相似度
+                    similarities = []
+                    for subgraph in session_subgraphs:
+                        sim_scores = self.comprehensive_similarity(subgraph, prototype_subgraph, weights)
+                        similarities.append(sim_scores['comprehensive'])
+                    
+                    if similarities:
+                        max_sim = max(similarities)
+                        avg_sim = np.mean(similarities)
+                        std_sim = np.std(similarities) if len(similarities) > 1 else 0.0
+                        match_count = sum(1 for sim in similarities if sim > 0.5)
+                        match_ratio = match_count / len(similarities)
+                        
+                        prototype_features.extend([max_sim, avg_sim, std_sim, match_count, match_ratio])
+                    else:
+                        prototype_features.extend([0.0, 0.0, 0.0, 0.0, 0.0])
+                
+                prototype_features_list.append(prototype_features)
+                
+            except Exception as e:
+                self.logger.warning(f"Failed to extract prototype features for session {session_id}: {e}")
+                # 添加零特征以保持维度一致
+                prototype_features_list.append([0.0] * (len(self.prototypes) * 5))
+            
+            # 每100个会话记录一次进度（如果没有tqdm）
+            if not use_tqdm and (i + 1) % 100 == 0:
+                self.logger.info(f"Processed {i+1}/{len(session_ids)} sessions "
+                               f"({(i+1)/len(session_ids)*100:.1f}%)")
+        
+        prototype_features_matrix = np.array(prototype_features_list)
+        self.logger.info(f"Prototype features dimension: {prototype_features_matrix.shape[1] if len(prototype_features_matrix) > 0 else 0}")
+        
+        return prototype_features_matrix
+    
     def optimize_weights_and_train(self) -> Dict[str, Any]:
-        """优化权重组合并训练最佳模型"""
+        """优化权重组合并训练最佳模型（性能优化版本）"""
         if self.heterogeneous_graph is None:
             self.logger.error("Heterogeneous graph not loaded. Please load it first.")
             return {}
             
         self.logger.info("Optimizing weight combinations...")
         
+        # 第一步：提取真实节点特征（只需要一次）
+        self.logger.info("Step 1: Extracting real node features (one-time)")
+        real_features, y, session_ids = self.extract_real_features_only()
+        
+        if len(real_features) == 0:
+            self.logger.error("No real features extracted")
+            return {}
+        
         best_f1 = 0.0
         best_weights = (0.5, 0.3, 0.2)  # 默认权重
         best_results = None
         
-        for weights in self.weight_combinations:
-            self.logger.info(f"Testing weights: {weights}")
+        # 第二步：为每个权重组合测试原型特征
+        self.logger.info("Step 2: Testing different weight combinations")
+        for i, weights in enumerate(self.weight_combinations):
+            self.logger.info(f"Testing weights {i+1}/{len(self.weight_combinations)}: {weights}")
             
-            # 提取特征
-            X, y, session_ids = self.extract_all_session_features(weights)
+            # 提取原型相似度特征（快速）
+            prototype_features = self.extract_prototype_features_only(session_ids, weights)
+            
+            # 合并真实特征和原型特征
+            X = np.concatenate([prototype_features, real_features], axis=1)
             
             if len(X) == 0:
                 self.logger.warning(f"No features extracted for weights {weights}")
